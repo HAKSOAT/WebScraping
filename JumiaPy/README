@@ -1,0 +1,29 @@
+JumiaPy is a written to scrape Nigeria's number one ecommerce store.
+
+THIS IS STRICTLY FOR EDUCATIONAL PURPOSES.
+
+This program scrapes the following information from the website:
+
+	Product Names
+
+	Product Links
+
+	Product Prices
+
+	Product Ratings
+
+	Product Seller
+
+
+Installation:
+
+	Simply fork this repository to your local machine, navigate to the JumiaPy directory, there you would find all the files for this project.
+
+Requirements:
+
+	requests
+	re
+	pandas
+	BeautifulSoup
+
+
