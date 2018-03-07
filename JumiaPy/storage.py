@@ -50,8 +50,7 @@ class Database(object):
         return self.connect_status.cursor()
     
     def make_table(self, access):
-        table_name = "JUMIA PRODUCTS"
-        index_column = "ID"
-        access.execute("CREATE TABLE {} ({} INTEGER AUTOINCREMENT, {} TEXT, {} TEXT, {} REAL,\
-                        {} REAL,{} INTEGER, {} TEXT);".format(index_column, self.names, self.links, self.prices,
-                                                             self.ratings, self.rated_sales, self.sellers))
+        
+        access.execute("CREATE TABLE {} ({} INTEGER AUTOINCREMENT PRIMARY KEY, {} TEXT, {} TEXT, {} REAL,\
+                        {} REAL,{} INTEGER, {} TEXT);".format(self.table_name, self.column_1, self.column_2,
+                                                              self.column_3, self.column_4, self.column_5, self.column_6))
