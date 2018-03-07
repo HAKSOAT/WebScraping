@@ -1,3 +1,7 @@
 .ipynb_checkpoints/
 *.swp
 *.ipynb
+__pycache__/
+*.pyc
+*.xlsx
+*.sqlite3
