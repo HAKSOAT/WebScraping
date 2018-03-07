@@ -1,5 +1,5 @@
-
 import pandas as pd
+import sqlite3
 
 class Excel(object):
     """
@@ -27,3 +27,14 @@ class Excel(object):
         pd_dataframe.to_excel(writer, "Sheet1", index = False)
         writer.save()
         
+        
+class Database(object):
+    
+    def __init__(self, names, links, prices, ratings, rated_sales, sellers):
+        
+        self.names = names
+        self.links = links
+        self.prices = prices
+        self.ratings = ratings
+        self.rated_sales = rated_sales
+        self.sellers = sellers
