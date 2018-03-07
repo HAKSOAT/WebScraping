@@ -1,3 +1,4 @@
+
 import pandas as pd
 import sqlite3
 
@@ -38,3 +39,19 @@ class Database(object):
         self.ratings = ratings
         self.rated_sales = rated_sales
         self.sellers = sellers
+        self.connect_status = None 
+
+    def create(self):
+        new_database = sqlite3.connect("output.sqlite3")
+        new_database.close()
+        
+    def connect(self):
+        self.connect_status = sqlite3.connect("output.sqlite3")
+        return self.connect_status.cursor()
+    
+    def make_table(self, access):
+        table_name = "JUMIA PRODUCTS"
+        index_column = "ID"
+        access.execute("CREATE TABLE {} ({} INTEGER AUTOINCREMENT, {} TEXT, {} TEXT, {} REAL,\
+                        {} REAL,{} INTEGER, {} TEXT);".format(index_column, self.names, self.links, self.prices,
+                                                             self.ratings, self.rated_sales, self.sellers))
