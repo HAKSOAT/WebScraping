@@ -4,7 +4,14 @@ import os
 
 class Excel(object):
     """
-    
+    This class receives the names, links, prices, ratings, rated_sales, sellers
+    parameters as lists, where all the lists must be of same length.
+    It then makes an excel file out of them using the Pandas DataFrame.
+
+    It has the following methods:
+
+        make_table()
+        output()
     
     
     """
@@ -30,6 +37,20 @@ class Excel(object):
         
         
 class Database(object):
+
+	"""
+	This class receives the names, links, prices, ratings, rated_sales, sellers
+    parameters as lists, where all the lists must be of same length.
+    It then creates an SQLite database, creates a table and inserts the values.
+
+    It has the following methods:
+
+        create()
+        connect()
+        make_table()
+        insert_row()
+
+	"""
     
     def __init__(self, names, links, prices, ratings, rated_sales, sellers):
         

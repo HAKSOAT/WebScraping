@@ -1,3 +1,5 @@
+
+
 import requests
 import re
 import pandas as pd
@@ -8,24 +10,6 @@ class JumiaProduct(object):
     This class parses the products section pages of jumia.com.ng,
     then it extracts some data such as the product names, prices, ratings, number of rated sales,
     links, sellers.
-    
-    You instantiate this class, by passing in:
-             a valid section link as a parameter (a string) 
-             the start page number (an integer)
-             the end page number (an integer)
-    
-    The link should be the first page of section without having page number in the string:
-    
-    Correct: https://www.jumia.com.ng/mobile-phones/
-             https://www.jumia.com.ng/beauty-corner/
-             
-    Wrong:   https://www.jumia.com.ng/mobile-phones/?page=1
-             https://www.jumia.com.ng/beauty-corner/?page=1
-    
-    
-    Example: JumiaProduct("https://www.jumia.com.ng/mobile-phones/", 2, 4)
-    
-    If link is wrong, it returns an InvalidLink error.
     
     It has the following methods:
     
