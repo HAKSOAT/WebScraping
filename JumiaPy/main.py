@@ -29,8 +29,22 @@ def save_to_excel(names, links, prices, ratings, rated_sales,
 
 	excel = Excel(names, links, prices, ratings, rated_sales,
                   sellers)
-	excel.make_tables()
+	excel.make_table()
 	excel.output()
+
+def save_to_database(names, links, prices, ratings, rated_sales,
+                  sellers):
+
+    database = Database(names, links, prices, ratings, rated_sales,
+                  sellers)
+
+    database.create()
+    connection = database.connect()
+    database.make_table(connection)
+    database.insert_row(connection)
+    database.commit_changes()
+    database.disconnect()
+
 
 if "__main__" == __name__:
 	product = parse_product(category_link, start_page, end_page)
@@ -38,3 +52,9 @@ if "__main__" == __name__:
 		save_to_excel(product.names, product.links, product.prices,
     	              product.ratings, product.rated_sales, 
     	              product.sellers)
+	elif output_type == "-d":
+		save_to_database(product.names, product.links, product.prices,
+    	              product.ratings, product.rated_sales, 
+    	              product.sellers)
+	else:
+		raise Exception("Wrong output file parameter.")

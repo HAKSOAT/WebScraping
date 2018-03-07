@@ -45,7 +45,7 @@ class JumiaProduct(object):
         if requests.get(category_link).status_code != 200:
             raise ConnectionError("This link is invalid")
         
-        if (".html" or "?") in section_link:
+        if (".html" or "?") in category_link:
             raise Exception("This link doesn't lead to a Jumia category")
         
         if (type(start_page) or type(end_page)) != int:
@@ -95,7 +95,7 @@ class JumiaProduct(object):
         
         for page in self.pages:
             class_value = re.compile(r"(?:^mabaya sku -gallery$)|(?:^sku -gallery$)|(?:^sku -gallery.+$)")
-            self.products += each_page.find_all("div", {"class": class_value})  
+            self.products += page.find_all("div", {"class": class_value})  
           
     def get_links(self):
         """
@@ -151,10 +151,10 @@ class JumiaProduct(object):
         """
         
         for product in self.products:
-            if each.find("div", {"class": "stars"}) == None:
+            if product.find("div", {"class": "stars"}) == None:
                 self.ratings.append("No Rating")
             else:
-                rating_tag = each.find("div", {"class": "stars"})["style"]
+                rating_tag = product.find("div", {"class": "stars"})["style"]
                 rating_re = re.compile(r"[0-9]+")
                 stars = format(int(rating_re.findall(rating_tag)[0])/100 * 5, '.2f')
                 self.ratings.append(stars)
@@ -174,8 +174,8 @@ class JumiaProduct(object):
             if product.find("div", {"class": "total-ratings"}) == None:
                 self.rated_sales.append("No Rated Sales")
             else:
+                dirty_sales = product.find("div", {"class": "total-ratings"}).text
                 rated_sales_re = re.compile(r"[0-9]+")
-                dirty_sales = each.find("div", {"class": "total-ratings"}).text
                 self.rated_sales.append(rated_sales_re.findall(dirty_sales)[0])
                 
     def get_sellers(self):
