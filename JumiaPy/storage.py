@@ -79,3 +79,9 @@ class Database(object):
                                                                             self.column_4, self.column_5, 
                                                                             self.column_6, name, link, price, 
                                                                             rating, rated_sale, seller))
+    def commit_changes(self):
+        
+        self.connect_status.commit()
+        
+    def disconnect(self):
+        self.connect_status.close()
