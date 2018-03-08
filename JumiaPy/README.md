@@ -26,9 +26,6 @@ To install the requirements run the command below:
 It installs the requirements on your machine.
 
 
-> Python 3 is required.
-
-
 Usage
 
 To use this code, you run the **main.py** file.
