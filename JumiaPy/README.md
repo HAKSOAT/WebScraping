@@ -1,4 +1,4 @@
-JumiaPy is written to scrape [Nigeria's number one ecommerce store](www.jumia.com.ng).
+JumiaPy is written to scrape [Nigeria's number one ecommerce store](https://www.jumia.com.ng "Jumia Home Page").
 
 **THIS IS STRICTLY FOR EDUCATIONAL PURPOSES.**
 
